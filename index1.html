@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let marks = 0
+        if (marks >= 70) {
+            console.log("A")
+        }
+        else if (marks >= 60) {
+            console.log("B")
+        }
+        else if (marks >= 50) {
+            console.log("C")
+        }
+        else if (marks >= 40) {
+            console.log("D")
+        }
+        else if (marks < 40 && marks > 0) {
+            console.log("E")
+        }
+        else {
+            console.log("Error")
+        }
+        //question 1
+        let number = 1
+        if (number % 2 !== 0) {
+            console.log("Odd")
+        }
+        else if (number % 2 == 0) {
+            console.log("even")
+        }
+        else {
+            console.log("Error")
+        }
+        //question 2
+        let a = 4
+        let b = 7
+        let c = 2
+        if (a > b && a > c) {
+            console.log("4")
+        }
+        else if (b > c && b > a) {
+            console.log("7")
+        }
+        else {
+            console.log("2")
+        }
+        //question three
+        let year = 1900
+        if (year % 4 == 0) {
+            console.log("Leap year")
+        }
+        else if (year % 100 == 0) {
+            console.log("Not a leap year")
+        }
+        else if (year % 400 == 0) {
+            console.log("leap year")
+        }
+        else {
+            console.log("Not a leap year")
+        }
+        //Question three corretion
+        let year = "2000";
+
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    console.log("Leap year");
+                } else {
+                    console.log("Not a leap year");
+                }
+            } else {
+                console.log("Leap year");
+            }
+        } else {
+            console.log("Not a leap year");
+        }
+    </script>
+</body>
+
+</html>

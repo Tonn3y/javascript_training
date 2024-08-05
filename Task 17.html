@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function gross_salary(a, b, c) {
+            return (a + b + c)
+        }
+        let basicsalary = 60000
+        let Housingallowance = 20000
+        let medicalinsurance = 10000
+        let total = gross_salary(basicsalary, Housingallowance, medicalinsurance)
+
+        function NHDF(total) {
+            console.log(total * 0.015)
+        }
+
+        NHDF(total)
+    </script>
+</body>
+</html>

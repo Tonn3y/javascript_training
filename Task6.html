@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let password
+        let attempts = 4
+        for (let i = 0; i < attempts; i++) {
+            password = prompt("Enter the password")
+            if (password == "admin123") {
+                alert("The password is correct")
+                break
+            }
+            else {
+                alert("The password is incorrect")
+
+                if (i == attempts - 1) {
+                    alert("The account is blocked.")
+                }
+            }
+        }
+        /*
+        let correctpassword = false;
+        for (let attempt = 0; attempt < 4; attempt++) {
+
+            let pass = prompt("Enter password");
+            if (pass == "1234") {
+                correctpassword = true;
+                console.log("Password correct. You can now access the account")
+                break;
+            }
+        }
+
+        if (!correctpassword) {
+            console.log("Account has been blocked due to the incorrect password submitted")
+        }
+        */
+    </script>
+</body>
+
+</html>

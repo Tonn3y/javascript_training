@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function gross_salary(a, b, c) {
+            return (a + b + c)
+        }
+        let basicsalary = 60000
+        let Housingallowance = 20000
+        let medicalinsurance = 10000
+        let total = gross_salary(basicsalary, Housingallowance, medicalinsurance)
+
+        function NSSF(total) {
+            if (total >= 18000) {
+                return (0.06 * total)
+            }
+            else {
+                console.log("Cannot deduct NSSF")
+            }
+        }
+        let a = NSSF(total)
+
+        function NHDF(total) {
+            return (total * 0.015)
+        }
+        let b = NHDF(total)
+
+        function taxable_income(total,a,b) {
+            console.log(total - (a + b))
+        }
+
+        taxable_income(total,a,b)
+    </script>
+</body>
+
+</html>

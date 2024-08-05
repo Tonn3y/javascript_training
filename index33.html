@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="oui"></p>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+ <script>
+    let a = (((5 +10) >= (8 + 7)))
+    document.getElementById("oui").innerText=typeof a
+    //
+    let s = (10>11) || (10>4)
+    document.getElementById("demo").innerText= s
+    //question 1
+    let m = 28
+    let t = m>0 && m<100
+    document.getElementById("demo1").innerText = m=t
+    //question 2
+    let email = "maryline@gmail.com"
+    let n = email.includes("@" && ".")
+    document.getElementById("demo2").innerText = n
+    //question 4
+    let number = "784737825"
+    let result =(number.startsWith("+254" ) && number.length ==13) || (number.startsWith("254") && number.length ==12) || (number.startsWith("07") && number.length == 10)|| (number.startsWith("7") && number.length ==9) || (number.startsWith("011") && number.length == 10)|| (number.startsWith("11") && number.length == 9)
+    document.getElementById("demo3").innerText=result
+ </script>  
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let number = prompt("Input a number:")
+        if (number % 2 == 0) {
+            alert("The number is even")
+        }
+        else {
+            alert("The number is odd")
+        }
+        // Correct
+        let num = parseInt(prompt("Enter a number"))
+        if (num % 2 == 0) {
+            if (num % 4 == 0) {
+                console.log("Num is Divisible by 4")
+            }
+            else {
+                console.log("number is even but not divisible by 4")
+            }
+
+        } else {
+            console.log("Odd")
+        }
+        // correct with functions 
+        function verify() {
+            let number = parseInt(prompt("Enter number")) 
+            if (number % 2 == 0) {
+                if (number % 4 == 0) {
+                    return ("The number is divisible by 4")
+                }
+                else {
+                    return ("The number is even but not divisible by four")
+                }
+            }
+            else {
+                return ("The number is not even")
+            }
+             let m = verify()
+             console.log(m)
+        }
+    </script>
+</body>
+
+</html>

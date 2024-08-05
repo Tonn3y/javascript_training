@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Pay Calculator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .item1, .item2a {
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="item1">
+            <a href="#" class="item1a"><span>pay</span>roll</a>
+            <a href="#" class="item1b">Home</a>
+            <a href="#" class="item1c">Features</a>
+            <a href="#" class="item1d">Pricing</a>
+            <a href="#" class="item1e">Resources</a>
+            <a href="#" class="item1f">Login</a>
+        </div>
+        <div class="item2">
+            <div class="item2a">
+                <h1>NET PAY CALCULATOR</h1>
+                <p>Enter the gross salary below amount to calculate amount</p>
+                <form id="payrollform">
+                    <label for="salary">Basic Salary:</label>
+                    <input type="number" id="salary" name="salary">
+                    <label for="benefits">Benefits:</label>
+                    <input type="number" id="benefits" name="benefits">
+                    <div style="color:red; font-style:italic;" id="error"></div>
+                    <button type="submit">CALCULATE</button>
+                </form>
+                <table id="datatable" class="table table-bordered mt-4">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Description</th>
+                            <th>Result (KES)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gross Salary</td>
+                            <td id="grosssalary"></td>
+                        </tr>
+                        <tr>
+                            <td>NSSF</td>
+                            <td id="nssf"></td>
+                        </tr>
+                        <tr>
+                            <td>NHIF</td>
+                            <td id="nhif"></td>
+                        </tr>
+                        <tr>
+                            <td>Final Payee</td>
+                            <td id="payee"></td>
+                        </tr>
+                        <tr>
+                            <td>Net Pay</td>
+                            <td id="netpay"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="item2b"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("payrollform").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let salary = parseFloat(document.getElementById("salary").value);
+            let benefits = parseFloat(document.getElementById("benefits").value);
+            if (isNaN(salary) || isNaN(benefits)) {
+                document.getElementById("error").innerText = "Please input all fields.";
+                return;
+            } else {
+                document.getElementById("error").innerText = "";
+            }
+
+            let grossSalary = salary + benefits;
+            let nssf = grossSalary >= 18000 ? 0.06 * grossSalary : 0;
+            let nhif = calculateNHIF(grossSalary);
+            let taxableIncome = grossSalary - nssf - nhif;
+            let payee = calculatePAYEE(taxableIncome);
+            let netPay = grossSalary - nssf - nhif - payee;
+
+            document.getElementById("grosssalary").innerText = grossSalary.toFixed(2);
+            document.getElementById("nssf").innerText = nssf.toFixed(2);
+            document.getElementById("nhif").innerText = nhif.toFixed(2);
+            document.getElementById("payee").innerText = payee.toFixed(2);
+            document.getElementById("netpay").innerText = netPay.toFixed(2);
+        });
+
+        function calculateNHIF(total) {
+            if (total <= 5999) return 150;
+            if (total <= 7999) return 300;
+            if (total <= 11999) return 400;
+            if (total <= 14999) return 500;
+            if (total <= 19999) return 600;
+            if (total <= 24999) return 750;
+            if (total <= 29999) return 850;
+            if (total <= 34999) return 900;
+            if (total <= 39999) return 950;
+            if (total <= 44999) return 1000;
+            if (total <= 49999) return 1100;
+            if (total <= 59999) return 1200;
+            if (total <= 69999) return 1300;
+            if (total <= 79999) return 1400;
+            if (total <= 89999) return 1500;
+            if (total <= 99999) return 1600;
+            return 1700;
+        }
+
+        function calculatePAYEE(income) {
+            let paye = 0;
+            if (income <= 24000) return paye;
+            income -= 24000;
+            paye += 24000 * 0.1;
+
+            if (income > 0) {
+                if (income > 8333) {
+                    paye += 8333 * 0.25;
+                    income -= 8333;
+                } else {
+                    paye += income * 0.25;
+                    income = 0;
+                }
+            }
+
+            if (income > 0) {
+                if (income > 467667) {
+                    paye += 467667 * 0.3;
+                    income -= 467667;
+                } else {
+                    paye += income * 0.3;
+                    income = 0;
+                }
+            }
+
+            if (income > 0) {
+                if (income > 300000) {
+                    paye += 300000 * 0.325;
+                    income -= 300000;
+                } else {
+                    paye += income * 0.325;
+                    income = 0;
+                }
+            }
+
+            if (income > 0) {
+                paye += income * 0.35;
+            }
+
+            return paye - 2400; // Subtracting tax relief
+        }
+    </script>
+</body>
+</html>

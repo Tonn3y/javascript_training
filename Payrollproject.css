@@ -1,0 +1,94 @@
+body {
+    background-color: darkgray;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 2fr 6fr;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.navbar {
+    grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+    height: 70px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+.item1 {
+    display: grid;
+    grid-template-columns: 3fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+}
+
+.item1 a {
+    text-decoration: none;
+    color: black;
+}
+
+.item1a {
+    color: aqua;
+    font-size: 2.5rem;
+}
+
+.btn {
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-top: 10px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+h1 {
+    color: rgba(255, 0, 0, 0.468);
+}
+
+.thh, .tbb {
+    width: 100%;
+}
+
+#datatable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#datatable th, #datatable td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+#datatable th {
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#datatable td {
+    background-color: white;
+    font-size: 1rem;
+}
+
+.tbb tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tbb tr:hover {
+    background-color: #ddd;
+}
+
+#error {
+    color: red;
+    font-style: italic;
+    margin-top: 10px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Payrollproject.css">
+    <title>Payroll</title>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="navbar">
+            <a href=""><span>pay</span>roll</a>
+            <a href="">Home</a>
+            <a href="">Features</a>
+            <a href="">Pricing</a>
+            <a href="">Resources</a>
+        </div>
+        <div class="item2">
+            <div class="item2a">
+                <h1 style="margin-top: 20px;">NET PAY CALCULATOR</h1>
+                <p style="margin-top: 40px;">Enter the gross salary below amount to calculate amount</p>
+                <form action="" id="payrollform">
+                    <label for="salary">Basic Salary:</label>
+                    <input type="number" id="salary" name="salary">
+                    <label for="benefits">Benefits :</label>
+                    <input type="number" id="benefits" name="benefits">
+                    <div style="color:red;font-style: italic;" id="error"></div>
+                    <input style="background-color: dodgerblue;" class="btn" type="submit" value="CALCULATE">
+                </form>
+                <table id="datatable">
+                    <thead class="thh">
+                        <tr>
+                            <th class="th1">Description</th>
+                            <th class="th2">Result (KES)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbb">
+                    </tbody>
+                </table>
+            </div>
+            <div class="item2b"></div>
+        </div>
+    </div>
+
+    <script src="newone.js" charset="UTF-8"></script>
+</body>
+
+</html>

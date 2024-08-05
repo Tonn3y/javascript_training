@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const students = {"name":"Mike", "age":27, "ismarried":false,}
+        console.log(students.name)
+        //Addition of a Key
+        students["Phone number"] = "254758937745"
+        console.log(students)
+        //Nested objects
+        students.address={"City":"Nairobi", "Street":"kimathi","Building":"Corner house"}
+        console.log(students)
+        //aligns the keys and values into an array
+        console.log(Object.keys(students))
+        console.log(Object.values(students))
+        console.log(Object.entries(students))
+        //Task
+        const myObject = [23, "Jane", 560, ["Lesson", "Maths", {"currency": "KES"}], 987, 76, "John"];
+        console.log(myObject[3][2].currency);//1
+        console.log(myObject[3][1])//2
+        console.log(myObject[2])//3
+        //4
+        myObject[3][2]["Amount"] = 90
+        console.log(myObject[3][2])
+        //5
+        myObject[4] = 789
+        console.log(myObject)
+        myObject[1] = "John"
+        console.log(myObject)
+    </script> 
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        const Countries = ["Germany","Sweden","Mexico","Turkey"]
+        console.log(Countries)
+        Countries.splice(2,0,"Namibia","New Zealand")
+        console.log(Countries)
+        document.getElementById("demo").innerText=typeof Countries
+        //Task 1
+        const colors = ["Red","Green","Blue"]
+        console.log(colors)
+        //Task 2
+        const fruits = ["Apple","Mango","Berries","Passion"]
+        fruits[1] = "Pear"
+        console.log(fruits)
+        //Task 3
+        const numbers = [44,62,13,41,76]
+        let LengthOfNumbers = numbers.length
+        console.log(LengthOfNumbers)
+        // Task 4
+        const Languages = ["English","Spanish","Chinese","Zulu","Swahili"]
+        Languages.pop()
+        console.log(Languages)
+        //Assignment 1
+        const CombinedArray = colors.concat(Languages)
+        CombinedArray.shift()
+        console.log(CombinedArray)  
+        //Assignment 2
+        const SourceArray = ["Nairobi","Embu","Kiambu","Kajiado","Mombasa","Nyeri","Machackos"]
+        const extractedArray = SourceArray.slice(2,5)
+        extractedArray.splice(0,3,"x","y","z")
+        console.log(SourceArray)
+        console.log(extractedArray)
+    </script>
+</body>
+</html>

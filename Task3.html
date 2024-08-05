@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let phonenumber = prompt("Input your Phone number")
+        if (phonenumber.startsWith("+254") && phonenumber.length == 13 || phonenumber.startsWith("07") && phonenumber.length == 10 || phonenumber.startsWith("7") && phonenumber.length == 9 || phonenumber.startsWith("254") && phonenumber.length == 12 || phonenumber.startsWith("01") && phonenumber.length == 10 || phonenumber.startsWith("1") && phonenumber.length == 9) {
+            alert("The phonenumber is valid")
+        }
+        else {
+            alert("Invalid phonenumber")
+        }
+        // Correction
+        let number = prompt("Enter phone number: ");
+        function ver(n) {
+            if ((n.startsWith("+254")) && n.length == 12 || (n.startsWith("07")) && n.length == 10 || (n.startsWith("7")) && n.length == 9 || (n.startsWith("254")) && n.length == 12 || (n.startsWith("01")) && n.length == 10 || (n.startsWith("1")) && n.length == 9) {
+                console.log(n, "verified!")
+                return true
+            } else {
+                console.log(n, "not verified!!!. TRY AGAIN.")
+                return false
+            }
+        }
+        let output = ver(number);
+        console.log(output);
+        function replacer(a) {
+            let correct = (a.replace("07", "+2547") || a.replace("7", "+2547") || a.replace("254", "+2547") || a.replace("01", "+2541") || a.replace("1", "+2541"));
+            console.log(correct);
+        }
+        if (output) {
+            replacer(number)
+        } else {
+            console.log("Invalid number can not be converted")
+        }
+    </script>
+</body>
+
+</html>

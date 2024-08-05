@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="too"></p>
+    <p id="together">Man City !!</p>
+    <p id="maybe"></p>
+    <p id="hi"></p>
+    <p id="hii">Halloo</p>
+    <p id="assignment"></p>
+    <p id="sone"></p>
+    <p id="stwo"></p>
+    <p id="q3"></p>
+    <p id="q4"></p>
+    <p id="q5"></p>
+    <script>
+        const a = "Tom"
+        document.getElementById("too").innerText=a
+        console.log(document.getElementById("together"))
+        console.log(document.getElementById("maybe"))
+        let c = "marie"
+        document.getElementById("maybe").innerText=c
+        let b = "Tomorrow we protest against Ruto!!"
+        document.getElementById("hi").innerText=b
+        console.log(document.getElementById(hii))
+        // assignment
+        //question one
+        let f_name = "JOHn ."
+        let name = f_name.toLowerCase()
+        document.getElementById("assignment").innerText=name
+        //question two a
+        let sentence_one = "The Dog Breed is German Shepherd"
+        document.getElementById("sone").innerText=sentence_one
+        let tems =sentence_one.slice(8,23)
+        document.getElementById("sone").innerText=tems
+        //question two b
+        let sentence_two = "Defeats for the Clinton forces, this was her moment of triumph"
+        document.getElementById("stwo").innerText=sentence_two
+        let new_sentence_two =sentence_two.slice(16,30)
+        document.getElementById("stwo").innerText=new_sentence_two
+        //question three
+        let sentence_three = "The lazy dog; ran so fast; it hit the wall."
+        document.getElementById("q3").innerText=sentence_three
+        let new_sentence_three = sentence_three.length
+        document.getElementById("q3").innerText=new_sentence_three
+        //question 4
+        let first_name = "Joh.n "
+        let last_name = "Do,e"
+        let new_first_name = first_name.replace(".","")
+        let new_last_name = last_name.replace(",","")
+        document.getElementById("q4").innerText=new_first_name + new_last_name
+        //  three correction
+        let sentence="The lazy dog ran so fast it hit the wall.";
+        let p=sentence.split("  ");
+        let k=p.toString();
+        let j=k.length;
+        document.getElementById("q5").innerText=p
+    </script>
+</body>
+</html>

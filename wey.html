@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //
+        function BMI(weight, height) {
+            console.log( weight/ (height * height))
+        }
+        let weight = 65
+        let height = 1.8
+        let answer = BMI(weight, height)
+        console.log(answer)
+        //
+        function celcius () {
+            let temperature = 20
+            return temperature
+        }
+
+        let m = celcius()
+
+        function  Fahrenheit (celcius) {
+            console.log((m * 1.8) + 32)
+        }
+
+        Fahrenheit(celcius)
+        //
+        function maxnumbers() {
+            let a = 44
+            let b = 26
+            let c = 73
+            if(a>b && a>c) {
+                console.log(a)
+            }
+            else if (b>a && b>c) {
+                console.log(b)
+            }
+            else {
+                console.log(c)
+            }
+        }
+        maxnumbers()
+        //
+        function checkoddoreven() {
+            let a = 21.2
+            if (a % 2 == 0) {
+                console.log("number is even")
+            }
+            else if (a % 2 !== 0 ) {
+                console.log ("The number is odd")
+            }
+            else {
+                console.log("Error")
+            }
+        }
+        checkoddoreven()
+        //
+        function marks() {
+            let math = 68
+            let english = 58
+            let kiswahili = 65 
+            let science = 63
+            let socials = 70
+            let totalmarks = (math + english + kiswahili + science + socials)
+            return totalmarks
+        }
+        let a = marks()
+
+        function average(a) {
+            let mean = a / 5
+            return mean
+        }
+        let b = average(a)
+
+        function grade (b) {
+            if (b >=70 && b<= 100) {
+                console.log("A")
+            }
+            else if (b>=60 && b <=69) {
+                console.log("b")
+            }
+            else if (b>=50 && b<=59) {
+                console.log("C")
+            }
+            else if (b>=40 && b<=49) {
+                console.log("D")
+            }
+            else if (b>=0 && b<=39) {
+                console.log("E")
+            }
+            else {
+                console.log("Error")
+            }
+        }
+        grade(b)
+    </script>
+</body>
+
+</html>

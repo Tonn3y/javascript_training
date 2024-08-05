@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function gross_salary(a, b, c) {
+            return (a + b + c)
+        }
+        let basicsalary = 60000
+        let Housingallowance = 20000
+        let medicalinsurance = 10000
+        let total = gross_salary(basicsalary, Housingallowance, medicalinsurance)
+
+        function NSSF(total) {
+            if (total >= 18000) {
+                return (0.06 * total)
+            }
+            else {
+                console.log("Cannot deduct NSSF")
+            }
+        }
+        let a = NSSF(total)
+
+        function NHDF(total) {
+            return (total * 0.015)
+        }
+        let b = NHDF(total)
+
+        function taxable_income(total, a, b) {
+            return (total - (a + b))
+        }
+        let c = taxable_income(total, a, b)
+
+        function payee(c) {
+            let rem = 0
+            let paye = 0
+            let relief = 2400
+            if (c <= 24000) {
+                paye = 0
+                return paye
+            } else if (c > 24000) {
+                rem = c - 24000
+                paye = 24000 * 0.1
+            }
+            if (rem > 0) {
+                if (rem > 8333) {
+                    rem = rem - 8333
+                    paye = paye + (8333 * 0.25)
+                }
+                else {
+                    paye = paye + (rem * 0.25)
+
+                    rem = 0
+                }
+
+            }
+            if (rem > 0) {
+                if (rem > 467667) {
+                    rem = rem - 467667
+                    paye = paye + (467667 * 0.30)
+                }
+                else {
+
+                    paye = paye + (rem * 0.30)
+                    rem = 0
+                }
+            }
+            if (rem > 0) {
+                if (rem > 300000) {
+                    rem = rem - 300000
+                    paye = paye + (300000 * 0.325)
+                }
+                else {
+                    paye = paye + (rem * 0.325)
+                    rem = 0
+                }
+            }
+            if (rem > 0) {
+                paye = paye + (rem * 0.35)
+            }
+            return paye - relief
+        }
+
+        let d = payee(c)
+        console.log(d)
+        /*
+        function PAYE(c) {
+            if (c <= 24000) {
+                console.log((0.1 * c) - 2400)
+            }
+            else if (c >=24001 && c<=32333) {
+                console.log((0.25 * c) - 2400)
+            }
+            else if (c>=32334 && c <=500000) {
+                console.log((0.30 * c) - 2400)
+            }
+            else if (c>=500001 && c<=800000) {
+                console.log((0.325 * c) -2400)
+            }
+            else if (c > 800000) {
+                console.log((0.35 * c) - 2400)
+            }
+            else {
+                console.log("error")
+            }
+        }
+
+        PAYE(c)
+        */
+    </script>
+</body>
+
+</html>

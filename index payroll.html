@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="myform">
+        <label for="salary">Basic Salary</label><br>
+        <input type="number" id="salary"><br>
+        <label for="benefits">Benefits</label><br>
+        <input type="number" id="benefits"><br>
+
+
+        <div id="error" style="color: red; font-style: italic;"></div>
+        <input type="submit" value="Submit">
+    </form>
+
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Result</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+
+
+    <script>
+        let myform = document.getElementById("myform")
+        myform.addEventListener("submit", function (e) {
+            e.preventDefault()
+            let basic_s = parseFloat(document.getElementById("salary").value);
+            let benefits = parseFloat(document.getElementById("benefits").value);
+
+            if (!basic_s || !benefits) {
+                document.getElementById("error").innerText = "Please ensure that you have filled all the input fields correctly"
+            } else {
+
+
+                function gross_Salary(basic, benefits) {
+                    return basic + benefits
+                }
+                let gross=gross_Salary(basic_s,benefits)
+
+
+                function Nhif(gross_salary) {
+
+                    if (gross_salary <= 5999) {
+                        nhif = 150;
+                    } else if (gross_salary <= 7999) {
+                        nhif = 300;
+                    } else if (gross_salary <= 11999) {
+                        nhif = 400;
+                    } else if (gross_salary <= 14999) {
+                        nhif = 500;
+                    } else if (gross_salary <= 19999) {
+                        nhif = 600;
+                    } else if (gross_salary <= 24999) {
+                        nhif = 750;
+                    } else if (gross_salary <= 29999) {
+                        nhif = 850;
+                    } else if (gross_salary <= 34999) {
+                        nhif = 900;
+                    } else if (gross_salary <= 39999) {
+                        nhif = 950;
+                    } else if (gross_salary <= 44999) {
+                        nhif = 1000;
+                    } else if (gross_salary <= 49999) {
+                        nhif = 1100;
+                    } else if (gross_salary <= 59999) {
+                        nhif = 1200;
+                    } else if (gross_salary <= 69999) {
+                        nhif = 1300;
+                    } else if (gross_salary <= 79999) {
+                        nhif = 1400
+                    } else if (gross_salary <= 89999) {
+                        nhif = 1500;
+                    } else if (gross_salary <= 99999) {
+                        nhif = 1600;
+                    } else {
+                        nhif = 1700;
+                    }
+                    return nhif
+                }
+                let nhi = Nhif(gross)
+        
+
+                function Nssf(gross_salary) {
+                    return 0.06 * gross_salary
+                }
+                let nssf = Nssf(gross)
+
+
+                function Nhdf(gross_salary) {
+                    return 0.015 * gross_salary
+                }
+                let nhdf = Nhdf(gross)
+           
+
+                function Taxable_income(gross_salary, nhif, nhdf, nssf) {
+                    return (gross_salary - nhif - nhdf - nssf)
+                }
+                let taxable_income = Taxable_income(gross, nhi, nhdf, nssf)
+    
+
+                let rem = 0
+                let paye = 0
+                function Payee(taxable_income) {
+                    if (taxable_income <= 24000) {
+                        paye = 0
+                    } else if (taxable_income > 24000) {
+                        paye = 0.10 * 24000
+                        rem = taxable_income - 24000
+                    }
+                    if (rem > 0) {
+                        if (rem > 8333) {
+                            paye = paye + (0.25 * 8333)
+                            rem = rem - 8333
+                        }
+                        else if (rem <= 8333) {
+                            paye = paye + (0.25 * rem)
+                            rem = 0
+                        }
+                    }
+                    if (rem > 0) {
+                        if (rem > 467667) {
+                            paye = paye + (0.3 * 467667)
+                            rem = rem - 467667
+                        }
+                        else if (rem <= 467667) {
+                            paye = paye + (0.3 * rem)
+                            rem = 0
+                        }
+                    }
+                    if (rem > 0) {
+                        if (rem > 300000) {
+                            paye = paye + (0.325 * 300000)
+                            rem = rem - 300000
+                        } else if (rem <= 300000) {
+                            paye = paye + (0.325 * rem)
+                            rem = 0
+                        }
+                    }
+
+                    if (rem > 0) {
+                        paye = rem * 0.35
+                    }
+                    return paye
+                }
+
+                let payee = Payee(taxable_income)
+                let relief = 2400
+                function net(gross, nhif, nssf, nhdf, payee, relief) {
+                    return (gross - nhif - nssf - nhdf - payee + relief)
+                }
+                let net_pay = net(gross, nhi, nssf, nhdf, payee, relief)
+
+                let table=document.getElementById("table")
+            let tbody=table.getElementsByTagName("tbody")[0]
+            let firstrow=tbody.insertRow()
+            let grosscell=firstrow.insertCell(0)
+            let grossresultcell=firstrow.insertCell(1)
+            grosscell.textContent="Gross Salary"
+            grossresultcell.textContent=gross
+            
+            let secondrow=tbody.insertRow()
+            let nssfcell=secondrow.insertCell(0)
+            let nssfresultcell=secondrow.insertCell(1)
+            nssfcell.textContent="NSSF"
+            nssfresultcell.textContent=nssf
+            
+            let thirdrow=tbody.insertRow()
+            let nhifcell=thirdrow.insertCell()
+            let nhifcellresult=thirdrow.insertCell()
+            nhifcell.textContent="NHIF"
+            nhifcellresult.textContent=nhi
+
+            let forthrow=tbody.insertRow()
+            let nhdfcell=forthrow.insertCell()
+            let nhdfcellresult=forthrow.insertCell()
+            nhdfcell.textContent="NHDF"
+            nhdfcellresult.textContent=nhdf
+
+            let fifthrow=tbody.insertRow()
+            let payeecell=fifthrow.insertCell()
+            let payeecellresult=fifthrow.insertCell()
+            payeecell.textContent="Final Payee"
+            payeecellresult.textContent=payee
+
+            let sixthrow=tbody.insertRow()
+            let netpaycell=sixthrow.insertCell()
+            let netpaycellresult=sixthrow.insertCell()
+            netpaycell.textContent="Net Pay"
+            netpaycellresult.textContent=net_pay
+
+            }
+        })
+    </script>
+</body>
+
+</html>
